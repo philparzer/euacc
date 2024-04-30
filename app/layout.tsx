@@ -43,7 +43,7 @@ export default function RootLayout({
             for the inspo
           </div>
 
-          <div>
+          {/* <div>
             built in Austria 🇦🇹 by{" "}
             <a
               href="https://twitter.com/philipp_parzer"
@@ -52,7 +52,7 @@ export default function RootLayout({
               @philipp_parzer
             </a>{" "}
             and friends
-          </div>
+          </div> */}
         </footer>
         <Analytics />
       </body>
