@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Logo from "@/components/logo";
 import BgVideo from "@/components/bg-video";
+import { Analytics } from "@vercel/analytics/react"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             and friends
           </div>
         </footer>
+        <Analytics />
       </body>
     </html>
   );

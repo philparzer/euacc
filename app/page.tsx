@@ -1,4 +1,3 @@
-import Logo from "@/components/logo";
 import WaitlistForm from "@/components/waitlist-form";
 
 export default function Home() {
