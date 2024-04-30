@@ -35,7 +35,7 @@ export default function RootLayout({
           <div>
             credits to{" "}
             <a
-              href="https://twitter.com/levelsio/status/1785003367002956143"
+              href="https://twitter.com/levelsio/status/1784943280171467260"
               className="text-eu-yellow underline"
             >
               @levelsio
