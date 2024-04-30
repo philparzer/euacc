@@ -2,12 +2,13 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Logo from "@/components/logo";
+import BgVideo from "@/components/bg-video";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "EU ACCELERATIONISM",
-  description: "make europe build again",
+  title: "EU Accelerationism",
+  description: "let's make Europe great again",
 };
 
 export default function RootLayout({
@@ -27,15 +28,30 @@ export default function RootLayout({
             />
           </div>
         </nav>
-        <div className="fixed top-0 left-0 w-screen h-screen pointer-events-none">
-        <video src="4.mov" className="w-full opacity-10 h-full top-0 left-0 object-cover" autoPlay loop playsInline muted></video>
-        
-        </div>
-        <div className="px-[3vw]">
-        {children}
-        </div>
-        <footer className="flex justify-center gap-1 text-sm pb-1 opacity-50">
-          credits to {" "} <a href="https://twitter.com/levelsio/status/1785003367002956143" className="text-eu-yellow underline">@levelsio</a> {" "} for the inspo
+        <BgVideo playbackRate={1} src={"bg.mp4"} posterSrc={"bg-poster.png"} />
+        <div className="px-[3vw]">{children}</div>
+        <footer className="flex text-xs flex-col items-center justify-center gap-1 pb-1 opacity-50">
+          <div>
+            credits to{" "}
+            <a
+              href="https://twitter.com/levelsio/status/1785003367002956143"
+              className="text-eu-yellow underline"
+            >
+              @levelsio
+            </a>{" "}
+            for the inspo and
+          </div>
+
+          <div>
+            built by{" "}
+            <a
+              href="https://twitter.com/philipp_parzer"
+              className="text-eu-yellow underline"
+            >
+              @philipp_parzer
+            </a>{" "}
+            and friends
+          </div>
         </footer>
       </body>
     </html>

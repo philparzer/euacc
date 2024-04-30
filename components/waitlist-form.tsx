@@ -19,28 +19,26 @@ const SubmitButton = ({ state }: any) => {
             : "cursor-pointer opacity-100"
         }`}
       >
-        <div
-          className={`z-10 `}
-        >
+        <div className={`z-10 `}>
           <button
             ref={buttonRef}
             className={`font-var-heading group font-bold relative block whitespace-nowrap text-black bg-eu-yellow px-3 py-2 text-sm uppercase `}
             disabled={state.message && !state.isError}
-           
           >
             join waitlist
-           
           </button>
         </div>
-      
       </div>
+      <div className="h-10 flex"></div>
       <div
-        className={`mt-10 h-10 ${
-          state.isError ? "text-white bg-red-500" : "text-white"
+        className={`flex ${
+          state.isError
+            ? "text-white py-1 rounded-md px-2 bg-red-500"
+            : "text-white"
         }`}
       >
         {pending ? (
-          <p className="animate-pulse text-black">waiting...</p>
+          <p className="animate-pulse !bg-transparent text-white">waiting...</p>
         ) : state.message ? (
           <>
             <div className="">
@@ -48,14 +46,12 @@ const SubmitButton = ({ state }: any) => {
                 state.message
               ) : (
                 <div className="flex flex-col items-center">
-                  <p>Thanks for signing up.</p>
-                  <p className="flex gap-2 font-semibold items-center underline-offset-2">DM us on <Link target="_blank" href="https://instagram.com/mypoca_official"><Image width={20} height={20} alt="insta" src="/links/Instagram.png"></Image></Link>or<Link target="_blank" href="https://twitter.com/mypoca_official"><Image width={16} height={16} alt="twitter" src="/links/X (Twitter).png"></Image></Link> for instant access code!</p>
+                  <p>Thanks for signing up!</p>
                 </div>
               )}
             </div>
           </>
-        ) :
-        null}
+        ) : null}
       </div>
     </div>
   );
@@ -70,12 +66,13 @@ const WaitlistForm = () => {
   const [state, formAction] = useFormState(joinWaitlist, initialState);
 
   return (
-    <>
-    <h2 className="mt-[100px] mb-4 text-white font-bold text-xl">Sign up to our waitlist</h2>
+    <div className="mb-20 text-center">
+      <h2 className="mt-[100px] mb-4 text-white font-bold text-xl">
+        Sign up to our waitlist
+      </h2>
       <form className="flex flex-col items-center gap-4 " action={formAction}>
         <div className="flex flex-col items-center gap-[18px]">
           <div className="relative">
-            
             <input
               className="w-[300px] text-black border-2 border-black px-4 py-1 placeholder:text-black focus:outline-pink"
               placeholder="name*"
@@ -85,7 +82,6 @@ const WaitlistForm = () => {
             ></input>
           </div>
           <div className="relative text-black">
-            
             <input
               className="w-[300px] border-2 border-black px-4 py-1 placeholder:text-black focus:outline-pink"
               placeholder="email*"
@@ -94,13 +90,12 @@ const WaitlistForm = () => {
               name="email"
             ></input>
           </div>
-         
         </div>
         <div className="flex ">
           <SubmitButton state={state} />
         </div>
       </form>
-    </>
+    </div>
   );
 };
 

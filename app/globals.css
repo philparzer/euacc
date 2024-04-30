@@ -5,3 +5,9 @@
 body {
     @apply bg-eu-blue
 }
+
+@media (prefers-reduced-motion) {
+   .reduced-motion-hidden {
+        display: none;
+   }
+  }
