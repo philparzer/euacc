@@ -1,8 +1,9 @@
+import KeyFacts from "@/components/key-facts";
 import WaitlistForm from "@/components/waitlist-form";
 
 export default function Home() {
   return (
-    <main className="flex relative z-10 min-h-[100dvh] pt-[200px] flex-col items-center justify-center">
+    <main className="flex relative z-10 min-h-[100dvh] pt-[100px] flex-col items-center justify-center">
       <section className="flex flex-col text-center  max-w-[600px] gap-2 items-center">
         <h1 className="text-2xl sm:text-3xl font-bold leading-normal sm:leading-[1.5em] text-white ">
           Let&apos;s make <span className="underline underline-offset-2 decoration-eu-yellow decoration-5">Europe</span>{" "}
@@ -17,6 +18,7 @@ export default function Home() {
         </p>
       </section>
       <WaitlistForm />
+      <KeyFacts />
     </main>
   );
 }

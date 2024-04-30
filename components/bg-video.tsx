@@ -24,7 +24,7 @@ const BgVideo = ({playbackRate, src, posterSrc}: BgVideoProps) => {
         poster={posterSrc}
         preload="none"
         src={src}
-        className="w-full blur-md opacity-20 h-full top-0 left-0 object-cover"
+        className="w-full blur-[6px] opacity-20 h-full top-0 left-0 object-cover"
         autoPlay
         loop
         playsInline

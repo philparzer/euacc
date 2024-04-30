@@ -2,9 +2,7 @@
 
 import joinWaitlist from "@/actions/join-waitlist";
 import { useFormState, useFormStatus } from "react-dom";
-import { useEffect, useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { useRef } from "react";
 
 const SubmitButton = ({ state }: any) => {
   const buttonRef = useRef<HTMLButtonElement>(null);

@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-white/80 ${inter.className}`}>
-        <nav className="flex fixed top-0 right-0 w-full items-center justify-center p-4">
-          <div className="w-[120px]">
+        <nav className="flex z-20  top-0 right-0 w-full items-center justify-center p-4">
+          <div className="w-[120px]  ">
             <Logo
               starColor={"#FFDD00"}
               textColorEU={"#FFFFFF"}
@@ -44,7 +44,7 @@ export default function RootLayout({
           </div>
 
           <div>
-            built by{" "}
+            built in Austria 🇦🇹 by{" "}
             <a
               href="https://twitter.com/philipp_parzer"
               className="text-eu-yellow underline"
