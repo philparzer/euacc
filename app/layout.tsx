@@ -40,7 +40,7 @@ export default function RootLayout({
             >
               @levelsio
             </a>{" "}
-            for the inspo and
+            for the inspo
           </div>
 
           <div>
