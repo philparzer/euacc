@@ -68,6 +68,7 @@ const KeyFacts = ({}: KeyFactsProps) => {
           <Topic variant="more">collaboration between states</Topic>
           <Topic variant="more">Schengen benefits</Topic>
           <Topic variant="more">power to EU</Topic>
+          <Topic variant="more">incentives for EU founders</Topic>
           <Topic variant="more">freedom</Topic>
         </ul>
         <AddTopicButton handler={moreTopicHandler} />
