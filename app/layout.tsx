@@ -33,17 +33,6 @@ export default function RootLayout({
         <div className="px-[3vw]">{children}</div>
         <footer className="flex text-xs flex-col items-center justify-center gap-1 pb-1 opacity-50">
           <div>
-            credits to{" "}
-            <a
-              href="https://twitter.com/levelsio/status/1784943280171467260"
-              className="text-eu-yellow underline"
-            >
-              @levelsio
-            </a>{" "}
-            for the inspo
-          </div>
-
-          {/* <div>
             built in Austria 🇦🇹 by{" "}
             <a
               href="https://twitter.com/philipp_parzer"
@@ -52,7 +41,7 @@ export default function RootLayout({
               @philipp_parzer
             </a>{" "}
             and friends
-          </div> */}
+          </div>
         </footer>
         <Analytics />
       </body>

@@ -9,7 +9,7 @@ export default function Home() {
           Let&apos;s make <span className="underline underline-offset-2 decoration-eu-yellow decoration-5">Europe</span>{" "}
           <span className="bg-eu-yellow rounded-md px-1 text-black whitespace-nowrap">
             the center of the world
-          </span>{" "}
+          </span>
           again
         </h1>
         <p className="mt-1 sm:mt-2 text-lg sm:text-xl">
