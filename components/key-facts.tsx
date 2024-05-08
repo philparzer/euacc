@@ -60,7 +60,7 @@ const KeyFacts = ({}: KeyFactsProps) => {
   return (
     <div className="max-w-[600px] items-center text-center flex flex-col gap-20 mb-40">
       <div>
-        <div className="font-bold text-xl text-white">we want more</div>
+        <div className="font-bold text-2xl text-white">more</div>
         <ul className="flex justify-center items-center gap-3 mt-4 flex-wrap ">
           <Topic variant="more">frontier tech</Topic>
           <Topic variant="more">nuclear & solar</Topic>
@@ -74,7 +74,7 @@ const KeyFacts = ({}: KeyFactsProps) => {
         <AddTopicButton handler={moreTopicHandler} />
       </div>
       <div>
-        <div className="font-bold text-xl text-white">we want less</div>
+        <div className="font-bold text-2xl text-white">less</div>
         <ul className="flex justify-center gap-3 gap-y-2 mt-4 flex-wrap">
           <Topic variant="less">taxes</Topic>
           <Topic variant="less">regulation</Topic>
