@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Logo from "@/components/logo";
 import BgVideo from "@/components/bg-video";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,29 +20,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-white/80 ${inter.className}`}>
-        <nav className="flex z-20  top-0 right-0 w-full items-center justify-center p-4">
-          <div className="w-[120px]  ">
-            <Logo
-              starColor={"#FFDD00"}
-              textColorEU={"#FFFFFF"}
-              textColorACC={"#FFFFFF"}
-            />
+        <nav className="fixed top-10 left-0 w-full flex justify-center">
+          <div className="w-32">
+        <Logo
+            
+            starColor={"#FFDD00"}
+            textColorEU={"#FFFFFF"}
+            textColorACC={"#FFFFFF"}
+          />
           </div>
         </nav>
         <BgVideo playbackRate={1} src={"bg.mp4"} posterSrc={"bg-poster.png"} />
         <div className="px-[3vw]">{children}</div>
-        <footer className="flex text-xs flex-col items-center justify-center gap-1 pb-1 opacity-50">
-          <div>
-            built in Austria 🇦🇹 by{" "}
-            <a
-              href="https://twitter.com/philipp_parzer"
-              className="text-eu-yellow underline"
-            >
-              @philipp_parzer
-            </a>{" "}
-            and friends
-          </div>
-        </footer>
         <Analytics />
       </body>
     </html>
