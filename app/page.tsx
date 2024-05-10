@@ -6,10 +6,10 @@ export default function Home() {
     <main className="flex relative z-10 min-h-[100dvh] flex-col items-center justify-center">
       <section className="flex flex-col mt-20 text-center  max-w-[600px] gap-2 items-center">
         
-        <p className="mt-1 sm:mt-2 max-w-[400px]">
+        <div className="mt-1 sm:mt-2 max-w-[400px]">
           <h1>EU/Accelerationism</h1> is a movement for ideas that enable rapid
           technological, and economical growth while keeping our values intact.
-        </p>
+        </div>
       </section>
       <section className="mt-10">
       <WaitlistForm />
