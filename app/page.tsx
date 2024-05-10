@@ -7,7 +7,7 @@ export default function Home() {
       <section className="flex flex-col mt-20 text-center  max-w-[600px] gap-2 items-center">
         
         <div className="mt-1 sm:mt-2 max-w-[400px]">
-          <h1>EU/Accelerationism</h1> is a movement for ideas that enable rapid
+          <h1 className="inline">European Accelerationism {"(eu/acc)"}</h1> is a movement for ideas that enable rapid
           technological, and economical growth while keeping our values intact.
         </div>
       </section>
