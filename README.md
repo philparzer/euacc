@@ -1,3 +1,5 @@
+<img style="width: 100px" src="https://github.com/philparzer/euacc/blob/main/public/eu-acc-white.svg">
+
 # euacc.org
 
 This is the source code for the [euacc.org](https://euacc.org).
