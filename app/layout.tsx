@@ -20,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-white/80 ${inter.className}`}>
-        <nav className="fixed top-10 left-0 w-full flex justify-center">
+        <nav className="fixed top-10 z-50 left-0 w-full flex justify-center">
           <div className="w-32">
         <Logo
             
