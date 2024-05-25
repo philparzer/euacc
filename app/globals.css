@@ -2,6 +2,17 @@
   @tailwind components;
   @tailwind utilities;
 
+  @font-face {
+    font-family: 'Arial';
+    src: url("/fonts/Arial-Regular.ttf");
+  }
+
+  @font-face {
+    font-family: 'Arial Black';
+    src: url("/fonts/Arial Black.ttf");
+    font-weight: bold;
+  }
+
   body {
       @apply bg-eu-blue
   }
