@@ -71,7 +71,7 @@ export default function Home() {
         </div>
         <VoteContainer />
       </section>
-      <section className=" flex w-full mt-[200px] xl:mt-[300px] mb-[40dvh]">
+      <section className=" flex w-full mt-[200px] xl:mt-[300px] mb-[200px] xl:mb-[40dvh]">
         <div>
           <h1 className="font-arialBlack text-4xl xl:text-6xl max-w-md">
             UPDATE THIS WEBSITE
@@ -85,8 +85,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer>
-        <Link href="/imprint">Imprint</Link>
+      <footer className="flex flex-col items-center">
+      <div>
+        for contact information, check <Link href="/imprint" className="underline">Imprint</Link></div>
+        
+        <div>
+        *if you submit the waitlist form you agree to our <Link href="/privacy" className="underline">Privacy Policy</Link></div>
       </footer>
       </div>
     </main>
