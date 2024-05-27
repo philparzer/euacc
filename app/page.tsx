@@ -1,6 +1,7 @@
 import Button from "@/components/button";
 import LogoContainer from "@/components/logo-container";
 import WaitlistForm from "@/components/waitlist-form";
+import { logos } from "@/data/logos";
 import Link from "next/link";
 
 export default function Home() {
@@ -15,7 +16,7 @@ export default function Home() {
         </div>
       </section>
       <section className="mt-[100px]">
-        <h1 className="font-arialBlack text-8xl max-w-2xl text-center">
+        <h1 className="font-arialBlack text-[100px] leading-[1em] max-w-4xl text-center">
           ACCELERATE EUROPE
         </h1>
       </section>
@@ -59,7 +60,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className=" flex flex-col 2xl:flex-row justify-between w-full mt-[200px] gap-20">
+      <section className=" flex flex-col 2xl:flex-row justify-between w-full mt-[300px] gap-20">
         <div className="grow max-w-md w-full">
           <h1 className="font-arialBlack text-6xl ">VOTE ON OUR LOGO</h1>
           <div className="mt-6">
@@ -68,55 +69,29 @@ export default function Home() {
         </div>
         <div>
           <div className="flex flex-wrap gap-20">
-            {/*TODO: render these dynamically*/}
-            <LogoContainer
-            variant="vote"
-              imgSrc="/eu-acc-white.svg"
+            {logos.map((logo) => <LogoContainer
+            key={logo.name}
+              name={logo.name}
+              imgSrc={logo.imgSrc}
               credit={{
-                name: "Philipp Parzer",
-                link: "https://philippparzer.com",
+                name: logo.creatorName,
+                link: logo.creatorLink,
               }}
-            />
-            <LogoContainer
-            variant="vote"
-              imgSrc="/eu-acc-white.svg"
-              credit={{
-                name: "Philipp Parzer",
-                link: "https://philippparzer.com",
-              }}
-            />
-            <LogoContainer
-            variant="vote"
-              imgSrc="/eu-acc-white.svg"
-              credit={{
-                name: "Philipp Parzer",
-                link: "https://philippparzer.com",
-              }}
-            />
-            <LogoContainer
-            variant="vote"
-              imgSrc="/eu-acc-white.svg"
-              credit={{
-                name: "Philipp Parzer",
-                link: "https://philippparzer.com",
-              }}
-            />
-            <LogoContainer
-            variant="vote"
-              imgSrc="/eu-acc-white.svg"
-              credit={{
-                name: "Philipp Parzer",
-                link: "https://philippparzer.com",
-              }}
-            />
-
-            <LogoContainer
-              variant="upload"
-            />
+            />)}
+            <div className="flex relative flex-col items-center">
+            <div className="w-[120px] flex items-center justify-center border border-dashed border-eu-yellow text-eu-yellow h-[120px] relative">
+        your idea
+      </div>
+      <div className="w-full flex justify-center pt-4">
+        <Link href="https://github.com/philparzer/euacc/blob/main/README.md">
+        <Button variant="primary">Submit</Button>
+        </Link>
+      </div>
+            </div>
           </div>
         </div>
       </section>
-      <section className=" flex w-full mt-[200px]">
+      <section className=" flex w-full mt-[300px] mb-[40dvh]">
         <div>
           <h1 className="font-arialBlack text-6xl max-w-md">
             UPDATE THIS WEBSITE
@@ -130,6 +105,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <footer>
+        <Link href="/imprint">Imprint</Link>
+      </footer>
       </div>
     </main>
   );

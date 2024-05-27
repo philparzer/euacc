@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import joinWaitlist from "@/actions/join-waitlist";
 import { useFormState, useFormStatus } from "react-dom";

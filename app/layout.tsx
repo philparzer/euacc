@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import BgVideo from "@/components/bg-video";
 import { Analytics } from "@vercel/analytics/react";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "EU Accelerationism",
@@ -16,11 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-white/80`}>
-        <BgVideo playbackRate={1} src={"bg.mp4"} posterSrc={"bg-poster.png"} />
+        <BgVideo
+          playbackRate={1}
+          src={"bg.mp4"}
+          posterSrc={"bg-poster.png"}
+        />
         <div className="px-[3vw]">{children}</div>
-        <footer className="mt-[40dvh] flex justify-center">
-          <p>made in Europe, by Europeans, for Europeans</p>
-        </footer>
         <Analytics />
       </body>
     </html>
