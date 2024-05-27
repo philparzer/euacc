@@ -1,8 +1,8 @@
-<img style="width: 100px" src="https://github.com/philparzer/euacc/blob/main/public/eu-acc-white.svg">
-
 # euacc.org
 
-This is the source code for the [euacc.org](https://euacc.org).
+This is the source code for [euacc.org](https://euacc.org).
+
+Let's build a public facing site together, open to all suggestions and contributions.
 
 ## Stack
 - Next 14 deployed on Vercel
@@ -12,13 +12,13 @@ This is the source code for the [euacc.org](https://euacc.org).
 
 ## Contributing
 
-Let's build something together, open to all suggestions. You can check some old ideas in `/components`
+
 
 Some ideas
-- Add a logo vote (or change the logo)
-- Add an important topic vote
-- Add a section on people speaking about this
-- Add a EU political party cheatsheet
+- [x] Add a logo vote
+- [ ] Add an important topic vote
+- [ ] Add a section on people speaking about this
+- [ ] Add a EU political party cheatsheet
 
 ## License
 MIT
