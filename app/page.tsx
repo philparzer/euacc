@@ -26,7 +26,7 @@ export default function Home() {
             cause
           </div>
           <div>
-            <Link href="https://discord.com/invite/ebfHJDv9cP">
+            <Link target="_blank" href="https://discord.com/invite/ebfHJDv9cP">
               <Button variant="primary">JOIN DISCORD</Button>
             </Link>
           </div>
