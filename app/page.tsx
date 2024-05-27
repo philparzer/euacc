@@ -8,7 +8,7 @@ export default function Home() {
     <main className="flex relative z-10 min-h-[100dvh] justify-center">
       <div className="max-w-[1300px] flex flex-col items-center">
       <section className="flex flex-col mt-20 text-center gap-2 items-center">
-        <div className="mt-1 sm:mt-2 max-w-lg text-lg">
+        <div className="mt-1 sm:mt-2 max-w-lg xl:text-lg">
           <p className="inline">European Accelerationism {"(eu/acc)"}</p> is a
           movement for ideas that enable rapid technological, and economical
           growth while keeping our values intact.
@@ -89,7 +89,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="flex flex-col items-center text-center">
+      <footer className="flex flex-col items-center text-center text-xs">
       <div>
         for contact information, check <Link href="/imprint" className="underline">Imprint</Link></div>
         
