@@ -41,7 +41,7 @@ export default function Page() {
           <h2 className="font-arialBlack text-2xl uppercase mt-8 pb-2">Dispute Resolution</h2>
           <p>
             Consumers have the option of submitting
-            complaints to the EU's online dispute resolution
+            complaints to the EU&apos;s online dispute resolution
             platform: http://ec.europa.eu/odr. You can also
             send any complaints to above email
           </p>
