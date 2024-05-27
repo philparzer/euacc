@@ -1,8 +1,8 @@
-# Logos Repository
+# DATA
+
+## Logos
 
 This repository contains a collection of logo entries, each represented by a TypeScript object with properties for the logo's name, creator's name, creator's link, and the image source file. These logo entries are used throughout our application and are validated using Zod schemas to ensure consistency.
-
-## How to add a logo?
 
 ### Need help?
 If you are not familiar with GitHub or have questions about contributing, please feel free to email parzerphilipp@gmail.com for assistance.

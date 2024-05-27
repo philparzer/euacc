@@ -10,7 +10,7 @@ const SubmitButton = ({ state }: any) => {
   const { pending } = useFormStatus();
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center relative">
       <div
         className={`relative flex pt-2 ${
           state.message && !state.isError
@@ -23,9 +23,8 @@ const SubmitButton = ({ state }: any) => {
           
         </div>
       </div>
-      <div className="h-10 flex"></div>
       <div
-        className={`flex ${
+        className={`flex absolute top-20 ${
           state.isError ? "text-white py-1 px-2 bg-red-500" : "text-white"
         }`}
       >

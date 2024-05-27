@@ -36,7 +36,7 @@ export default function VoteContainer() {
             your idea
           </div>
           <div className="w-full flex justify-center pt-4">
-            <Link href="https://github.com/philparzer/euacc/blob/main/README.md">
+            <Link target="_blank" href="https://github.com/philparzer/euacc/blob/main/data/README.md">
               <Button variant="primary">Submit</Button>
             </Link>
           </div>

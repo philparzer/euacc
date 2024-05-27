@@ -66,7 +66,9 @@ export default function Home() {
             Vote on your favorite one or submit your own.
           </p>
           <div className="mt-6">
+            <Link target="_blank" href="https://github.com/philparzer/euacc/blob/main/data/README.md">
             <Button variant="primary">Submit new logo</Button>
+            </Link>
           </div>
         </div>
         <VoteContainer />
@@ -81,7 +83,9 @@ export default function Home() {
             open-source. We are open to all kinds of contributions.
           </p>
           <div className="mt-6">
+            <Link target="_blank" href="https://github.com/philparzer/euacc">
             <Button variant="primary">CONTRIBUTE ON GITHUB</Button>
+            </Link>
           </div>
         </div>
       </section>
