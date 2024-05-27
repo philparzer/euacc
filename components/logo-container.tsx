@@ -50,13 +50,13 @@ const SubmitButton = ({ state, name, disabledByParent, onSubmit }: any) => {
   }, [])
 
 
-  const isDisabled = (state.message && !state.isError) || hasVoted
+  const isDisabled = hasVoted || (state.message && !state.isError)
 
   return (
     <div  className="flex justify-center relative">
       <div
         className={`relative flex ${
-          isDisabled
+          isDisabled || disabledByParent
             ? "pointer-events-none opacity-50"
             : "cursor-pointer opacity-100"
         }`}
@@ -157,7 +157,7 @@ const LogoContainer = ({
         ></img>
       </div>
       <div className="w-full flex justify-center pt-4">
-        <SubmitButton state={state} name={name} onSubmit={onSubmit} />
+        <SubmitButton state={state} name={name} onSubmit={onSubmit} disabledByParent={disabledByParent} />
       </div>
     </form>
   );
