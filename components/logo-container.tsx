@@ -8,9 +8,9 @@ import {
   TooltipTrigger,
   TooltipProvider,
 } from "./ui/tooltip";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import voteForLogo from "@/actions/vote-logo";
-import { getCookie, setCookie } from "@/lib/utils";
+import { getCookie, setCookie } from "cookies-next";
 
 interface LogoContainerProps {
   name: string;
@@ -19,28 +19,41 @@ interface LogoContainerProps {
     link: string;
   };
   imgSrc: string;
+  onSubmit: () => void;
+  disabledByParent: boolean;
 }
 
-const SubmitButton = ({ state, name }: any) => {
+const SubmitButton = ({ state, name, disabledByParent, onSubmit }: any) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { pending } = useFormStatus();
+  const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
 
     if (state.message && ! state.isError) {
-      setCookie('voted', name, 300);
+      setCookie('vote', name);
     }
 
     if (state.isError) {
       console.log(state.message);
     }
+
+    
   }, [state.isError, state.message]);
 
-  const alreadyVoted = getCookie('voted');
-  const isDisabled = (state.message && !state.isError) || alreadyVoted
+  useEffect(() => {
+    if (getCookie("vote")) {
+      
+      setHasVoted(true);
+    }
+  
+  }, [])
+
+
+  const isDisabled = (state.message && !state.isError) || hasVoted
 
   return (
-    <div className="flex justify-center relative">
+    <div  className="flex justify-center relative">
       <div
         className={`relative flex ${
           isDisabled
@@ -53,6 +66,7 @@ const SubmitButton = ({ state, name }: any) => {
             variant="secondary"
             ref={buttonRef}
             disabled={isDisabled}
+            onClick={onSubmit}
           >
             Vote
           </Button>
@@ -69,14 +83,14 @@ const SubmitButton = ({ state, name }: any) => {
           <p className="animate-pulse !bg-transparent text-white">
             waiting...
           </p>
-        ) : state.message || isDisabled && name === getCookie("voted") ? (
+        ) : state.message || isDisabled && name === getCookie("vote") ? (
           <>
             <div className="">
               {state.isError ? (
                 "Error"
               ) : (
                 <div className="flex flex-col items-center">
-                  <p>Voted</p>
+                  <p>Your Vote</p>
                 </div>
               )}
             </div>
@@ -96,6 +110,8 @@ const LogoContainer = ({
   name,
   credit,
   imgSrc,
+  disabledByParent,
+  onSubmit,
 }: LogoContainerProps) => {
   const [state, formAction] = useFormState(
     voteForLogo,
@@ -132,7 +148,7 @@ const LogoContainer = ({
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <input className="hidden" name="name" value={name}></input>
+      <input className="hidden" name="name" value={name} readOnly></input>
       <div className="w-[120px] h-[120px] relative">
         <img
           alt="logo"
@@ -141,7 +157,7 @@ const LogoContainer = ({
         ></img>
       </div>
       <div className="w-full flex justify-center pt-4">
-        <SubmitButton state={state} name={name} />
+        <SubmitButton state={state} name={name} onSubmit={onSubmit} />
       </div>
     </form>
   );

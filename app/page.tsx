@@ -1,7 +1,6 @@
 import Button from "@/components/button";
-import LogoContainer from "@/components/logo-container";
+import VoteContainer from "@/components/vote-container";
 import WaitlistForm from "@/components/waitlist-form";
-import { logos } from "@/data/logos";
 import Link from "next/link";
 
 export default function Home() {
@@ -15,13 +14,13 @@ export default function Home() {
           growth while keeping our values intact.
         </div>
       </section>
-      <section className="mt-[100px]">
-        <h1 className="font-arialBlack text-[100px] leading-[1em] max-w-4xl text-center">
+      <section className="mt-[100px] ">
+        <h1 className="font-arialBlack text-[42px] xl:text-[100px] leading-[1em] xl:max-w-4xl text-center">
           ACCELERATE EUROPE
         </h1>
       </section>
-      <section className="mt-[110px] max-w-4xl grid grid-cols-3 w-full gap-9">
-        <div className="border border-eu-yellow border-dashed p-6 text-center flex justify-between flex-col">
+      <section className="mt-[110px] max-w-4xl grid xl:grid-cols-3 w-full gap-9">
+        <div className="border border-eu-yellow border-dashed gap-10 xl:gap-0 p-6 text-center flex justify-between flex-col">
           <div className="text-eu-yellow">
             our official Discord, join our meetups, discussions, and help our
             cause
@@ -33,7 +32,7 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="border border-eu-yellow border-dashed p-6 text-center flex justify-between flex-col">
+        <div className="border border-eu-yellow border-dashed gap-10 xl:gap-0 p-6 text-center flex justify-between flex-col">
           <div>
             information about some of our goals, initiatives, and how we
             organize
@@ -55,45 +54,26 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        <div className="border border-eu-yellow border-dashed p-6">
+        <div className="border border-eu-yellow border-dashed gap-10 xl:gap-0 p-6">
           <WaitlistForm />
         </div>
       </section>
 
-      <section className=" flex flex-col 2xl:flex-row justify-between w-full mt-[300px] gap-20">
-        <div className="grow max-w-md w-full">
-          <h1 className="font-arialBlack text-6xl ">VOTE ON OUR LOGO</h1>
+      <section className=" flex flex-col 2xl:flex-row justify-between mt-[200px] xl:mt-[300px] gap-20">
+        <div className="grow max-w-md">
+          <h1 className="font-arialBlack text-4xl xl:text-6xl ">VOTE ON OUR LOGO</h1>
+          <p className="mt-6 max-w-lg ">
+            Vote on your favorite one or submit your own.
+          </p>
           <div className="mt-6">
             <Button variant="primary">Submit new logo</Button>
           </div>
         </div>
-        <div>
-          <div className="flex flex-wrap gap-20">
-            {logos.map((logo) => <LogoContainer
-            key={logo.name}
-              name={logo.name}
-              imgSrc={logo.imgSrc}
-              credit={{
-                name: logo.creatorName,
-                link: logo.creatorLink,
-              }}
-            />)}
-            <div className="flex relative flex-col items-center">
-            <div className="w-[120px] flex items-center justify-center border border-dashed border-eu-yellow text-eu-yellow h-[120px] relative">
-        your idea
-      </div>
-      <div className="w-full flex justify-center pt-4">
-        <Link href="https://github.com/philparzer/euacc/blob/main/README.md">
-        <Button variant="primary">Submit</Button>
-        </Link>
-      </div>
-            </div>
-          </div>
-        </div>
+        <VoteContainer />
       </section>
-      <section className=" flex w-full mt-[300px] mb-[40dvh]">
+      <section className=" flex w-full mt-[200px] xl:mt-[300px] mb-[40dvh]">
         <div>
-          <h1 className="font-arialBlack text-6xl max-w-md">
+          <h1 className="font-arialBlack text-4xl xl:text-6xl max-w-md">
             UPDATE THIS WEBSITE
           </h1>
           <p className="mt-6 max-w-lg ">

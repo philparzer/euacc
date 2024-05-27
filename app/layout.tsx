@@ -2,11 +2,21 @@ import type { Metadata } from "next";
 import "./globals.css";
 import BgVideo from "@/components/bg-video";
 import { Analytics } from "@vercel/analytics/react";
-import Link from "next/link";
+import ogImage from "./opengraph-image.png";
 
 export const metadata: Metadata = {
   title: "EU Accelerationism",
   description: "let's make Europe great again",
+  metadataBase: new URL(`https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`),
+  openGraph: {
+    images: [
+      {
+        url: ogImage.src,
+        width: ogImage.width,
+        height: ogImage.height
+      },
+    ],
+  },
 };
 
 export default function RootLayout({
