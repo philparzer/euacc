@@ -89,7 +89,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <footer className="flex flex-col items-center">
+      <footer className="flex flex-col items-center text-center">
       <div>
         for contact information, check <Link href="/imprint" className="underline">Imprint</Link></div>
         
