@@ -1,6 +1,6 @@
 export default function Page() {
   return (
-    <main className="min-h-screen flex items-center justify-center flex-col text-center ">
+    <main className="min-h-screen py-10 xl:py-20 flex items-center justify-center flex-col text-center ">
         <div className="max-w-xl">
       <h1 className="font-arialBlack text-6xl mb-10 ">
         IMPRINT
