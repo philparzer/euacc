@@ -16,7 +16,7 @@ export default async function Home() {
   return (
     <main className="flex relative z-10 min-h-[100dvh] justify-center">
       <div className="max-w-[1300px] flex flex-col items-center ">
-        <div className="xl:h-[90vh] xl:min-h-[500px] flex flex-col justify-between">
+        <div className="xl:h-[90vh] max-h-[900px] xl:min-h-[500px] flex flex-col justify-between">
         <section className="flex flex-col pt-[7vh] text-center gap-2 items-center">
           <div className="mt-1 sm:mt-2 max-w-lg xl:text-lg">
             <p className="inline">
