@@ -1,4 +1,8 @@
+import DecentralizedAnimation from "@/components/animations/decentralized-animation";
+import LeftRightAnimation from "@/components/animations/left-right-animation";
+import WithEuAnimation from "@/components/animations/with-eu-animation";
 import Button from "@/components/button";
+import FAQBlock from "@/components/faq-block";
 import {
   PopoverContent,
   PopoverTrigger,
@@ -14,96 +18,142 @@ export default async function Home() {
   const { rows } = await sql`SELECT * FROM logo_votes`;
 
   return (
-    <main className="flex relative z-10 min-h-[100dvh] justify-center">
-      <div className="max-w-[1300px] flex flex-col items-center ">
-        <div className="xl:h-[90vh] max-h-[900px] xl:min-h-[500px] flex flex-col justify-between">
-        <section className="flex flex-col pt-[7vh] text-center gap-2 items-center">
-          <div className="mt-1 sm:mt-2 max-w-lg xl:text-lg">
-            <p className="inline">
-              European Accelerationism {"(eu/acc)"}
-            </p>{" "}
-            is a movement for ideas that enable rapid
-            technological, and economical growth while
-            keeping our values intact.
-          </div>
-        </section>
-        <section className="mt-[10vh] ">
-          <h1 className="font-arialBlack text-[12vw] xl:text-[100px] leading-[1em] xl:max-w-4xl text-center">
-            ACCELERATE EUROPE
-          </h1>
-        </section>
-        <section className="mt-[10vh] max-w-4xl grid xl:grid-cols-3 w-full gap-9 justify-center">
-          <div className="border  max-w-[340px] sm:max-w-none border-eu-yellow border-dashed gap-10 xl:gap-0 p-6 text-center flex justify-between flex-col">
-            <div className="text-eu-yellow">
-              our official Discord, join our meetups,
-              discussions, and help our cause
+    <main className="relative z-10 flex min-h-[100dvh] justify-center">
+      <div className="flex max-w-[1300px] flex-col items-center">
+        <div className="flex xl:max-h-[900px] flex-col justify-between xl:h-[90vh] xl:min-h-[500px]">
+          <section className="flex flex-col items-center gap-2 pt-[7vh] text-center">
+            <div className="mt-1 max-w-lg sm:mt-2 xl:text-lg">
+              <p className="inline">
+                European Accelerationism {"(eu/acc)"}
+              </p>{" "}
+              is a movement for ideas that enable rapid
+              technological, and economical growth while
+              keeping our values intact.
             </div>
-            <div>
-              <Link
-                target="_blank"
-                href="https://discord.com/invite/ebfHJDv9cP"
-              >
-                <Button variant="primary">
-                  JOIN DISCORD
-                </Button>
-              </Link>
-            </div>
-          </div>
-
-          <div className="border max-w-[340px] sm:max-w-none border-eu-yellow border-dashed gap-10 xl:gap-0 p-6 text-center flex justify-between flex-col">
-            <div>
-              information about some of our goals,
-              initiatives, and how we organize
-            </div>
-            <div>
+          </section>
+          <section className="mt-[10vh]">
+            <h1 className="text-center font-arialBlack text-[12vw] leading-[1em] xl:max-w-4xl xl:text-[100px]">
+              ACCELERATE EUROPE
+            </h1>
+          </section>
+          <section className="mt-[10vh] grid w-full max-w-4xl justify-center gap-9 xl:grid-cols-3">
+            <div className="flex max-w-[340px] flex-col justify-between gap-10 border border-dashed border-eu-yellow p-6 text-center sm:max-w-none xl:gap-0">
+              <div className="text-eu-yellow">
+                our official Discord, join our meetups,
+                discussions, and help our cause
+              </div>
               <div>
                 <Link
                   target="_blank"
-                  href="https://eu-acc.com"
+                  href="https://discord.com/invite/ebfHJDv9cP"
                 >
-                  <Button
-                    className="w-full"
-                    variant="secondary"
-                  >
-                    EU-ACC.COM
+                  <Button variant="primary">
+                    JOIN DISCORD
                   </Button>
                 </Link>
               </div>
-              <Popover>
-                <PopoverTrigger>
-                  <div className="pt-4 underline decoration-eu-yellow decoration-2 underline-offset-2">
-                    Other Links and Socials
-                  </div>
-                </PopoverTrigger>
-                <PopoverContent
-                  sideOffset={14}
-                  className="flex flex-col gap-3 items-center font-semibold text-eu-blue"
-                >
-                  {links.map((link) => (
-                    <Link
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.title}
-                    </Link>
-                  ))}
-                </PopoverContent>
-              </Popover>
             </div>
-          </div>
-          <div className="border  max-w-[340px] sm:max-w-none border-eu-yellow border-dashed gap-10 xl:gap-0 p-6">
-            <WaitlistForm />
-          </div>
-        </section>
+
+            <div className="flex max-w-[340px] flex-col justify-between gap-10 border border-dashed border-eu-yellow p-6 text-center sm:max-w-none xl:gap-0">
+              <div>
+                information about some of our goals,
+                initiatives, and how we organize
+              </div>
+              <div>
+                <div>
+                  <Link
+                    target="_blank"
+                    href="https://eu-acc.com"
+                  >
+                    <Button
+                      className="w-full"
+                      variant="secondary"
+                    >
+                      EU-ACC.COM
+                    </Button>
+                  </Link>
+                </div>
+                <Popover>
+                  <PopoverTrigger>
+                    <div className="pt-4 underline decoration-eu-yellow decoration-2 underline-offset-2">
+                      Other Links and Socials
+                    </div>
+                  </PopoverTrigger>
+                  <PopoverContent
+                    sideOffset={14}
+                    className="flex flex-col items-center gap-3 font-semibold text-eu-blue"
+                  >
+                    {links.map((link) => (
+                      <Link
+                        key={link.href}
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.title}
+                      </Link>
+                    ))}
+                  </PopoverContent>
+                </Popover>
+              </div>
+            </div>
+            <div className="max-w-[340px] gap-10 border border-dashed border-eu-yellow p-6 sm:max-w-none xl:gap-0">
+              <WaitlistForm />
+            </div>
+          </section>
         </div>
-        <section className=" flex flex-col 2xl:flex-row text-center sm:text-left items-center sm:items-start sm:justify-between mt-[200px] xl:mt-[300px] gap-20">
-          <div className="grow max-w-md">
-            <h1 className="font-arialBlack text-4xl xl:text-6xl text-center sm:text-left">
+
+        <section className="mt-[100px] flex flex-col gap-40 xl:mt-[200px]">
+          <FAQBlock
+            question="Left or Right?"
+            answer={
+              <span>
+                We reject culture wars and aren’t concerned
+                with polarising ideologies. We focus on
+                <span className="font-bold text-white/100">
+                  {" "}
+                  pragmatic solutions that help every
+                  European.
+                </span>
+              </span>
+            }
+            animation={<LeftRightAnimation />}
+          />
+          <FAQBlock
+            question="Who's in charge?"
+            answer={
+              <span>
+                We are a
+                <span className="font-bold text-white/100">
+                  {" "}
+                  decentralized movement{" "}
+                </span>
+                with many different goals.
+              </span>
+            }
+            animation={<DecentralizedAnimation />}
+          />
+          <FAQBlock
+            question="F*ck the EU, right?"
+            answer={
+              <span>
+                <span className="font-bold text-white/100">
+                  No,{" "}
+                </span>
+                we work with EU policy makers, not against
+                them.
+              </span>
+            }
+            animation={<WithEuAnimation />}
+          />
+        </section>
+
+        <section className="mt-[200px] flex flex-col items-center gap-20 text-center sm:items-start sm:justify-between sm:text-left xl:mt-[300px] 2xl:flex-row">
+          <div className="max-w-md grow">
+            <h1 className="text-center font-arialBlack text-4xl sm:text-left xl:text-6xl">
               VOTE ON OUR LOGO
             </h1>
-            <p className="mt-6 max-w-lg ">
+            <p className="mt-6 max-w-lg">
               Vote on your favorite one or submit your own.
             </p>
             <div className="mt-6">
@@ -119,12 +169,12 @@ export default async function Home() {
           </div>
           <VoteContainer voteData={rows} />
         </section>
-        <section className=" flex w-full justify-center text-center sm:justify-start sm:text-left mt-[200px] xl:mt-[300px] mb-[200px] xl:mb-[40dvh]">
+        <section className="mb-[200px] mt-[200px] flex w-full justify-center text-center sm:justify-start sm:text-left xl:mb-[40dvh] xl:mt-[300px]">
           <div>
-            <h1 className="font-arialBlack text-4xl xl:text-6xl max-w-md">
+            <h1 className="max-w-md font-arialBlack text-4xl xl:text-6xl">
               UPDATE THIS WEBSITE
             </h1>
-            <p className="mt-6 max-w-lg ">
+            <p className="mt-6 max-w-lg">
               Content, design, and everything else you see
               here is 100% open-source. We are open to all
               kinds of contributions.

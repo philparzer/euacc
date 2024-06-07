@@ -20,7 +20,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         {...rest}
-        className={`text-black font-arialBlack uppercase px-4 py-2 ${
+        className={`text-black font-arialBold font-bold uppercase px-4 py-1.5 ${
           variant === "primary"
             ? "bg-eu-yellow/90 hover:bg-eu-yellow/100"
             : "bg-white/90 hover:bg-white/100"

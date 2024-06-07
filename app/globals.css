@@ -13,6 +13,12 @@
     font-weight: bold;
   }
 
+  @font-face {
+    font-family: 'Arial Bold';
+    src: url("/fonts/Arial-Bold.ttf");
+    font-weight: bold;
+  }
+
   body {
       @apply bg-eu-blue
   }

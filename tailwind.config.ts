@@ -78,6 +78,7 @@ const config = {
       fontFamily: {
         arial: ["Arial", "sans-serif"],
         arialBlack: ["Arial Black", "sans-serif"],
+        arialBold: ["Arial Bold", "sans-serif"],
       }
     },
   },
