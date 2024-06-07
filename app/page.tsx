@@ -15,8 +15,9 @@ export default async function Home() {
 
   return (
     <main className="flex relative z-10 min-h-[100dvh] justify-center">
-      <div className="max-w-[1300px] flex flex-col items-center">
-        <section className="flex flex-col mt-20 text-center gap-2 items-center">
+      <div className="max-w-[1300px] flex flex-col items-center ">
+        <div className="xl:h-[90vh] xl:min-h-[500px] flex flex-col justify-between">
+        <section className="flex flex-col pt-[7vh] text-center gap-2 items-center">
           <div className="mt-1 sm:mt-2 max-w-lg xl:text-lg">
             <p className="inline">
               European Accelerationism {"(eu/acc)"}
@@ -26,12 +27,12 @@ export default async function Home() {
             keeping our values intact.
           </div>
         </section>
-        <section className="mt-[100px] ">
+        <section className="mt-[10vh] ">
           <h1 className="font-arialBlack text-[12vw] xl:text-[100px] leading-[1em] xl:max-w-4xl text-center">
             ACCELERATE EUROPE
           </h1>
         </section>
-        <section className="mt-[110px] max-w-4xl grid xl:grid-cols-3 w-full gap-9 justify-center">
+        <section className="mt-[10vh] max-w-4xl grid xl:grid-cols-3 w-full gap-9 justify-center">
           <div className="border  max-w-[340px] sm:max-w-none border-eu-yellow border-dashed gap-10 xl:gap-0 p-6 text-center flex justify-between flex-col">
             <div className="text-eu-yellow">
               our official Discord, join our meetups,
@@ -96,7 +97,7 @@ export default async function Home() {
             <WaitlistForm />
           </div>
         </section>
-
+        </div>
         <section className=" flex flex-col 2xl:flex-row text-center sm:text-left items-center sm:items-start sm:justify-between mt-[200px] xl:mt-[300px] gap-20">
           <div className="grow max-w-md">
             <h1 className="font-arialBlack text-4xl xl:text-6xl text-center sm:text-left">
