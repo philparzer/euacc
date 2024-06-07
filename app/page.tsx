@@ -6,11 +6,11 @@ import {
 } from "@/components/ui/popover";
 import VoteContainer from "@/components/vote-container";
 import WaitlistForm from "@/components/waitlist-form";
+import { links } from "@/data/links";
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
 
 export default async function Home() {
-
   const { rows } = await sql`SELECT * FROM logo_votes`;
 
   return (
@@ -78,30 +78,16 @@ export default async function Home() {
                   sideOffset={14}
                   className="flex flex-col gap-3 items-center font-semibold text-eu-blue"
                 >
-                  <Link
-                    href="https://x.com/euaccpolicy"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    
-                  >
-                    @euaccpolicy
-                  </Link>
-                  <Link
-                    href="https://x.com/andreasklinger"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    
-                  >
-                    @andreasklinger
-                  </Link>
-                  <Link
-                    href="https://eu-acc.slite.page/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    
-                  >
-                    Slite
-                  </Link>
+                  {links.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {link.title}
+                    </Link>
+                  ))}
                 </PopoverContent>
               </Popover>
             </div>
