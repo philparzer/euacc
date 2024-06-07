@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`text-white/80`}>
         <NewsBanner 
-          message="EU Elections are this weekend. Go Vote!"
+          message="EU Elections this weekend. Go Vote!"
           link="https://euandi.eu"
         />
         <BgVideo
