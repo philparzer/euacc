@@ -60,7 +60,7 @@ export default async function Home() {
                 initiatives, and how we organize
               </div>
               <div>
-                <div>
+                <div className="flex justify-center">
                   <Link
                     target="_blank"
                     href="https://eu-acc.com"
