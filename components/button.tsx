@@ -24,7 +24,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           variant === "primary"
             ? "bg-eu-yellow/90 hover:bg-eu-yellow/100"
             : "bg-white/90 hover:bg-white/100"
-        }`}
+        } ${rest.className}`}
       >
         {children}
       </button>

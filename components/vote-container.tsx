@@ -6,8 +6,14 @@ import Link from "next/link";
 import Button from "./button";
 import { useEffect, useState } from "react";
 import { getCookie } from "cookies-next";
+import { QueryResult } from "@vercel/postgres";
 
-export default function VoteContainer() {
+interface VoteContainerProps {
+  voteData: QueryResult["rows"];
+}
+
+
+export default function VoteContainer({ voteData }: VoteContainerProps) {
   const [allButtonsDisabled, setAllButtonsDisabled] =
     useState(false);
 
@@ -17,12 +23,13 @@ export default function VoteContainer() {
 
   return (
     <div>
-      <div className="flex flex-wrap gap-20">
+      <div className="flex flex-wrap justify-center sm:justify-start gap-20 mt-4">
         {logos.map((logo) => (
           <LogoContainer
             onSubmit={() => setAllButtonsDisabled(true)}
             disabledByParent={allButtonsDisabled}
             key={logo.name}
+            votes={voteData?.find((vote) => vote.name === logo.name)?.votes}
             name={logo.name}
             imgSrc={logo.imgSrc}
             credit={{

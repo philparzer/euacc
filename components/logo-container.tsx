@@ -14,6 +14,7 @@ import { getCookie, setCookie } from "cookies-next";
 
 interface LogoContainerProps {
   name: string;
+  votes: number;
   credit: {
     name: string;
     link: string;
@@ -23,37 +24,37 @@ interface LogoContainerProps {
   disabledByParent: boolean;
 }
 
-const SubmitButton = ({ state, name, disabledByParent, onSubmit }: any) => {
+const SubmitButton = ({
+  state,
+  name,
+  disabledByParent,
+  onSubmit,
+}: any) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
   const { pending } = useFormStatus();
   const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
-
-    if (state.message && ! state.isError) {
-      setCookie('vote', name);
+    if (state.message && !state.isError) {
+      setCookie("vote", name);
     }
 
     if (state.isError) {
       console.log(state.message);
     }
-
-    
   }, [state.isError, state.message]);
 
   useEffect(() => {
     if (getCookie("vote")) {
-      
       setHasVoted(true);
     }
-  
-  }, [])
+  }, []);
 
-
-  const isDisabled = hasVoted || (state.message && !state.isError)
+  const isDisabled =
+    hasVoted || (state.message && !state.isError);
 
   return (
-    <div  className="flex justify-center relative">
+    <div className="flex justify-center relative">
       <div
         className={`relative flex ${
           isDisabled || disabledByParent
@@ -83,13 +84,14 @@ const SubmitButton = ({ state, name, disabledByParent, onSubmit }: any) => {
           <p className="animate-pulse !bg-transparent text-white">
             waiting...
           </p>
-        ) : state.message || isDisabled && name === getCookie("vote") ? (
+        ) : state.message ||
+          (isDisabled && name === getCookie("vote")) ? (
           <>
             <div className="">
               {state.isError ? (
                 "Error"
               ) : (
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-center text-sm">
                   <p>Your Vote</p>
                 </div>
               )}
@@ -109,6 +111,7 @@ const initialState = {
 const LogoContainer = ({
   name,
   credit,
+  votes,
   imgSrc,
   disabledByParent,
   onSubmit,
@@ -118,15 +121,16 @@ const LogoContainer = ({
     initialState
   );
 
-
   return (
-    <form
-      className="flex relative flex-col items-center"
-      action={formAction}
-    >
+    <div className="flex relative flex-col items-center">
+      {disabledByParent && (
+        <div style={{opacity: disabledByParent ? 1 : 0}} className="transition-opacity absolute z-50 w-full -top-10 left-0 flex items-center justify-center font-bold text-eu-yellow">
+          {votes}
+        </div>
+      )}
       <TooltipProvider>
         <Tooltip>
-          <TooltipTrigger>
+          <TooltipTrigger className="cursor-help">
             <div className=" px-1.5 font-arialBlack text-sm z-10 absolute -right-2 top-0 bg-eu-yellow text-black">
               i
             </div>
@@ -148,18 +152,30 @@ const LogoContainer = ({
           </TooltipContent>
         </Tooltip>
       </TooltipProvider>
-      <input className="hidden" name="name" value={name} readOnly></input>
-      <div className="w-[120px] h-[120px] relative">
-        <img
-          alt="logo"
-          src={imgSrc}
-          className="w-full h-full object-contain"
-        ></img>
-      </div>
-      <div className="w-full flex justify-center pt-4">
-        <SubmitButton state={state} name={name} onSubmit={onSubmit} disabledByParent={disabledByParent} />
-      </div>
-    </form>
+      <form action={formAction}>
+        <input
+          className="hidden"
+          name="name"
+          value={name}
+          readOnly
+        ></input>
+        <div className="w-[120px] h-[120px] relative">
+          <img
+            alt="logo"
+            src={imgSrc}
+            className="w-full h-full object-contain"
+          ></img>
+        </div>
+        <div className="w-full relative flex justify-center pt-4">
+          <SubmitButton
+            state={state}
+            name={name}
+            onSubmit={onSubmit}
+            disabledByParent={disabledByParent}
+          />
+        </div>
+      </form>
+    </div>
   );
 };
 
