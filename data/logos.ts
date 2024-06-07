@@ -3,8 +3,8 @@ import { z } from 'zod';
 export const logos = [
     {
         name: "stars-exponential-bw",
-        creatorName: "Julian B",
-        creatorLink: "https://twitter.com/julianb",
+        creatorName: "Julian ₿",
+        creatorLink: "https://twitter.com/_julianbp",
         imgSrc: "/logos/stars-exponential-bw.svg",
     },
     {
