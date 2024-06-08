@@ -28,7 +28,7 @@ export default function VoteContainer({ logoVotePromise }: VoteContainerProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center sm:justify-start gap-20 mt-4">
+      <div className="flex flex-wrap justify-center xl:justify-start gap-20 mt-4">
         {logos.map((logo) => (
           <LogoContainer
             onSubmit={() => setAllButtonsDisabled(true)}

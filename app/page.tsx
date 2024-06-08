@@ -37,7 +37,7 @@ export default async function Home() {
               ACCELERATE EUROPE
             </h1>
           </section>
-          <section className="mt-[10vh] grid w-full max-w-4xl justify-center gap-9 xl:grid-cols-3">
+          <section className="mt-[10vh]  grid w-full xl:max-w-4xl justify-center gap-9 xl:grid-cols-3">
             <div className="flex max-w-[340px] flex-col justify-between gap-10 border border-dashed border-eu-yellow p-6 text-center sm:max-w-none xl:gap-0">
               <div className="text-eu-yellow">
                 our official Discord, join our meetups,
@@ -148,9 +148,9 @@ export default async function Home() {
           />
         </section>
 
-        <section className="mt-[200px] flex flex-col items-center gap-20 text-center sm:items-start sm:justify-between sm:text-left xl:mt-[300px] 2xl:flex-row">
-          <div className="max-w-md grow">
-            <h1 className="text-center font-arialBlack text-4xl sm:text-left xl:text-6xl">
+        <section className="mt-[200px] flex flex-col items-center gap-20 text-center xl:items-start xl:justify-between xl:text-left xl:mt-[300px] 2xl:flex-row">
+          <div className="xl:max-w-md grow">
+            <h1 className="text-center font-arialBlack text-4xl xl:text-left xl:text-6xl">
               VOTE ON OUR LOGO
             </h1>
             <p className="mt-6 max-w-lg">
@@ -179,9 +179,9 @@ export default async function Home() {
             />
           </Suspense>
         </section>
-        <section className="mb-[200px] mt-[200px] flex w-full justify-center text-center sm:justify-start sm:text-left xl:mb-[40dvh] xl:mt-[300px]">
+        <section className="mb-[200px] mt-[200px] flex w-full justify-center text-center xl:justify-start xl:text-left xl:mb-[40dvh] xl:mt-[300px]">
           <div>
-            <h1 className="max-w-md font-arialBlack text-4xl xl:text-6xl">
+            <h1 className="xl:max-w-md text-center xl:text-left font-arialBlack text-4xl xl:text-6xl">
               UPDATE THIS WEBSITE
             </h1>
             <p className="mt-6 max-w-lg">
