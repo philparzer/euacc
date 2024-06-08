@@ -20,11 +20,6 @@ export default async function Home() {
 
   return (
     <main className="relative z-10 flex min-h-[100dvh] justify-center">
-      <Suspense
-        fallback={<div className="my-20 animate pulse">Loading Vote Data...</div>}
-      >
-        <VoteContainer logoVotePromise={logoVotesPromise} />
-      </Suspense>
       <div className="flex max-w-[1300px] flex-col items-center">
         <div className="flex flex-col justify-between xl:h-[90vh] xl:max-h-[900px] xl:min-h-[500px]">
           <section className="flex flex-col items-center gap-2 pt-[7vh] text-center">
@@ -172,6 +167,17 @@ export default async function Home() {
               </Link>
             </div>
           </div>
+          <Suspense
+            fallback={
+              <div className="animate-pulse my-20">
+                Loading Vote Data...
+              </div>
+            }
+          >
+            <VoteContainer
+              logoVotePromise={logoVotesPromise}
+            />
+          </Suspense>
         </section>
         <section className="mb-[200px] mt-[200px] flex w-full justify-center text-center sm:justify-start sm:text-left xl:mb-[40dvh] xl:mt-[300px]">
           <div>
