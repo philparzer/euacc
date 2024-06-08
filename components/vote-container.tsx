@@ -7,13 +7,18 @@ import Button from "./button";
 import { useEffect, useState } from "react";
 import { getCookie } from "cookies-next";
 import { QueryResult } from "@vercel/postgres";
+import {use} from 'react';
 
 interface VoteContainerProps {
-  voteData: QueryResult["rows"];
+  logoVotePromise: Promise<QueryResult>;
 }
 
 
-export default function VoteContainer({ voteData }: VoteContainerProps) {
+export default function VoteContainer({ logoVotePromise }: VoteContainerProps) {
+
+
+
+  const {rows: voteData} = use(logoVotePromise);
   const [allButtonsDisabled, setAllButtonsDisabled] =
     useState(false);
 

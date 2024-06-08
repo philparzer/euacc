@@ -13,14 +13,20 @@ import WaitlistForm from "@/components/waitlist-form";
 import { links } from "@/data/links";
 import { sql } from "@vercel/postgres";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default async function Home() {
-  const { rows } = await sql`SELECT * FROM logo_votes`;
+  const logoVotesPromise = sql`SELECT * FROM logo_votes`;
 
   return (
     <main className="relative z-10 flex min-h-[100dvh] justify-center">
+      <Suspense
+        fallback={<div className="my-20 animate pulse">Loading Vote Data...</div>}
+      >
+        <VoteContainer logoVotePromise={logoVotesPromise} />
+      </Suspense>
       <div className="flex max-w-[1300px] flex-col items-center">
-        <div className="flex xl:max-h-[900px] flex-col justify-between xl:h-[90vh] xl:min-h-[500px]">
+        <div className="flex flex-col justify-between xl:h-[90vh] xl:max-h-[900px] xl:min-h-[500px]">
           <section className="flex flex-col items-center gap-2 pt-[7vh] text-center">
             <div className="mt-1 max-w-lg sm:mt-2 xl:text-lg">
               <p className="inline">
@@ -102,7 +108,6 @@ export default async function Home() {
             </div>
           </section>
         </div>
-
         <section className="mt-[100px] flex flex-col gap-40 xl:mt-[200px]">
           <FAQBlock
             question="Left or Right?"
@@ -167,7 +172,6 @@ export default async function Home() {
               </Link>
             </div>
           </div>
-          <VoteContainer voteData={rows} />
         </section>
         <section className="mb-[200px] mt-[200px] flex w-full justify-center text-center sm:justify-start sm:text-left xl:mb-[40dvh] xl:mt-[300px]">
           <div>
