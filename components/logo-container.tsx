@@ -11,6 +11,8 @@ import {
 import { useEffect, useRef, useState } from "react";
 import voteForLogo from "@/actions/vote-logo";
 import { getCookie, setCookie } from "cookies-next";
+import { PopoverContent } from "@radix-ui/react-popover";
+import { Popover, PopoverTrigger } from "./ui/popover";
 
 interface LogoContainerProps {
   name: string;
@@ -54,7 +56,7 @@ const SubmitButton = ({
     hasVoted || (state.message && !state.isError);
 
   return (
-    <div className="flex justify-center relative">
+    <div className="relative flex justify-center">
       <div
         className={`relative flex ${
           isDisabled || disabledByParent
@@ -74,9 +76,9 @@ const SubmitButton = ({
         </div>
       </div>
       <div
-        className={`flex absolute top-12 ${
+        className={`absolute top-12 flex ${
           state.isError
-            ? "text-white py-1 px-2 bg-red-500"
+            ? "bg-red-500 px-2 py-1 text-white"
             : "text-white"
         }`}
       >
@@ -118,40 +120,34 @@ const LogoContainer = ({
 }: LogoContainerProps) => {
   const [state, formAction] = useFormState(
     voteForLogo,
-    initialState
+    initialState,
   );
 
   return (
-    <div className="flex relative flex-col items-center">
-      {disabledByParent && (
-        <div style={{opacity: disabledByParent ? 1 : 0}} className="transition-opacity absolute z-50 w-full -top-10 left-0 flex items-center justify-center font-bold text-eu-yellow">
-          {votes}
-        </div>
-      )}
-      <TooltipProvider>
-        <Tooltip>
-          <TooltipTrigger className="cursor-help">
-            <div className=" px-1.5 font-arialBlack text-sm z-10 absolute -right-2 top-0 bg-eu-yellow text-black">
-              i
-            </div>
-          </TooltipTrigger>
-          <TooltipContent>
-            <div className="p-4">
-              <p>
-                by{" "}
-                <a
-                  href={credit.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-eu-yellow underline"
-                >
-                  {credit.name}
-                </a>
-              </p>
-            </div>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+    <div className="relative flex flex-col items-center">
+      <Popover>
+        <PopoverTrigger>
+          <div className="absolute -right-2 top-0 z-10 bg-eu-yellow px-1.5 font-arialBlack text-sm text-black">
+            i
+          </div>
+        </PopoverTrigger>
+        <PopoverContent sideOffset={20} side="top">
+          <div className="relative z-50 bg-white px-4 py-2 text-black">
+            <p>
+              by{" "}
+              <a
+                href={credit.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-eu-blue underline"
+              >
+                {credit.name}
+              </a>
+            </p>
+          </div>
+        </PopoverContent>
+      </Popover>
+
       <form action={formAction}>
         <input
           className="hidden"
@@ -159,20 +155,29 @@ const LogoContainer = ({
           value={name}
           readOnly
         ></input>
-        <div className="w-[120px] h-[120px] relative">
+        <div className="relative h-[120px] w-[120px]">
           <img
             alt="logo"
             src={imgSrc}
-            className="w-full h-full object-contain"
+            className="h-full w-full object-contain"
           ></img>
         </div>
-        <div className="w-full relative flex justify-center pt-4">
-          <SubmitButton
-            state={state}
-            name={name}
-            onSubmit={onSubmit}
-            disabledByParent={disabledByParent}
-          />
+        <div className="relative flex h-12 w-full items-center justify-center pt-4">
+          {disabledByParent ? (
+            <div
+              style={{ opacity: disabledByParent ? 1 : 0 }}
+              className="left-0 flex w-full items-center justify-center  font-bold text-eu-yellow transition-opacity"
+            >
+              {votes}
+            </div>
+          ) : (
+            <SubmitButton
+              state={state}
+              name={name}
+              onSubmit={onSubmit}
+              disabledByParent={disabledByParent}
+            />
+          )}
         </div>
       </form>
     </div>

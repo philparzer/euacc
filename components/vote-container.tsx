@@ -47,7 +47,7 @@ export default function VoteContainer({ logoVotePromise }: VoteContainerProps) {
           <div className="w-[120px] flex items-center justify-center border border-dashed border-eu-yellow text-eu-yellow h-[120px] relative">
             your idea
           </div>
-          <div className="w-full flex justify-center pt-4">
+          <div className="w-full flex justify-center pt-4 h-12 items-center">
             <Link target="_blank" href="https://github.com/philparzer/euacc/blob/main/data/README.md">
               <Button variant="primary">Submit</Button>
             </Link>
