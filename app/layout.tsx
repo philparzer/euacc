@@ -3,8 +3,7 @@ import "./globals.css";
 import BgVideo from "@/components/bg-video";
 import { Analytics } from "@vercel/analytics/react";
 import ogImage from "./opengraph-image.png";
-import Link from "next/link";
-import NewsBanner from "@/components/news-banner";
+// import NewsBanner from "@/components/news-banner";
 
 export const metadata: Metadata = {
   title: "EU Accelerationism",
@@ -31,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-white/80`}>
-        <NewsBanner 
+        {/* <NewsBanner 
           message="EU Elections this weekend. Go Vote!"
           link="https://euandi.eu"
-        />
+        /> */}
         <BgVideo
           playbackRate={1}
           src={"bg.mp4"}
