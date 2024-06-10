@@ -2,17 +2,12 @@
 
 import { useFormState, useFormStatus } from "react-dom";
 import Button from "./button";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "./ui/tooltip";
 import { useEffect, useRef, useState } from "react";
 import voteForLogo from "@/actions/vote-logo";
 import { getCookie, setCookie } from "cookies-next";
 import { PopoverContent } from "@radix-ui/react-popover";
 import { Popover, PopoverTrigger } from "./ui/popover";
+import Image from "next/image";
 
 interface LogoContainerProps {
   name: string;
@@ -66,6 +61,7 @@ const SubmitButton = ({
       >
         <div className={`z-10`}>
           <Button
+            className={`${pending && "animate-pulse"}`}
             variant="secondary"
             ref={buttonRef}
             disabled={isDisabled}
@@ -82,21 +78,11 @@ const SubmitButton = ({
             : "text-white"
         }`}
       >
-        {pending ? (
-          <p className="animate-pulse !bg-transparent text-white">
-            waiting...
-          </p>
-        ) : state.message ||
-          (isDisabled && name === getCookie("vote")) ? (
+        {(!pending && state.message) ||
+        (isDisabled && name === getCookie("vote")) ? (
           <>
-            <div className="">
-              {state.isError ? (
-                "Error"
-              ) : (
-                <div className="flex flex-col items-center text-sm">
-                  <p>Your Vote</p>
-                </div>
-              )}
+            <div className="left-0 top-10 bg-white text-red-500">
+              {state.isError ? "Error" : null}
             </div>
           </>
         ) : null}
@@ -156,28 +142,29 @@ const LogoContainer = ({
           readOnly
         ></input>
         <div className="relative h-[120px] w-[120px]">
-          <img
+          <Image
             alt="logo"
+            fill
             src={imgSrc}
             className="h-full w-full object-contain"
-          ></img>
+          ></Image>
         </div>
         <div className="relative flex h-12 w-full items-center justify-center pt-4">
-          {disabledByParent ? (
+          {disabledByParent && state && (
             <div
               style={{ opacity: disabledByParent ? 1 : 0 }}
-              className="left-0 flex w-full items-center justify-center  font-bold text-eu-yellow transition-opacity"
+              className="absolute left-0 top-16 flex w-full items-center justify-center font-bold text-eu-yellow transition-opacity"
             >
               {votes}
             </div>
-          ) : (
-            <SubmitButton
-              state={state}
-              name={name}
-              onSubmit={onSubmit}
-              disabledByParent={disabledByParent}
-            />
           )}
+
+          <SubmitButton
+            state={state}
+            name={name}
+            onSubmit={onSubmit}
+            disabledByParent={disabledByParent}
+          />
         </div>
       </form>
     </div>

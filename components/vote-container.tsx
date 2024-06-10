@@ -4,21 +4,19 @@ import { logos } from "@/data/logos";
 import LogoContainer from "./logo-container";
 import Link from "next/link";
 import Button from "./button";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import { getCookie } from "cookies-next";
 import { QueryResult } from "@vercel/postgres";
-import {use} from 'react';
 
 interface VoteContainerProps {
   logoVotePromise: Promise<QueryResult>;
 }
 
+export default function VoteContainer({
+  logoVotePromise,
+}: VoteContainerProps) {
+  const { rows: voteData } = use(logoVotePromise);
 
-export default function VoteContainer({ logoVotePromise }: VoteContainerProps) {
-
-
-
-  const {rows: voteData} = use(logoVotePromise);
   const [allButtonsDisabled, setAllButtonsDisabled] =
     useState(false);
 
@@ -28,13 +26,17 @@ export default function VoteContainer({ logoVotePromise }: VoteContainerProps) {
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center xl:justify-start gap-20 mt-4">
+      <div className="mt-4 flex flex-wrap justify-center gap-20 xl:justify-start">
         {logos.map((logo) => (
           <LogoContainer
             onSubmit={() => setAllButtonsDisabled(true)}
             disabledByParent={allButtonsDisabled}
             key={logo.name}
-            votes={voteData?.find((vote) => vote.name === logo.name)?.votes}
+            votes={
+              voteData?.find(
+                (vote) => vote.name === logo.name,
+              )?.votes
+            }
             name={logo.name}
             imgSrc={logo.imgSrc}
             credit={{
@@ -43,12 +45,15 @@ export default function VoteContainer({ logoVotePromise }: VoteContainerProps) {
             }}
           />
         ))}
-        <div className="flex relative flex-col items-center">
-          <div className="w-[120px] flex items-center justify-center border border-dashed border-eu-yellow text-eu-yellow h-[120px] relative">
+        <div className="relative flex flex-col items-center">
+          <div className="relative flex h-[120px] w-[120px] items-center justify-center border border-dashed border-eu-yellow text-eu-yellow">
             your idea
           </div>
-          <div className="w-full flex justify-center pt-4 h-12 items-center">
-            <Link target="_blank" href="https://github.com/philparzer/euacc/blob/main/data/README.md">
+          <div className="flex h-12 w-full items-center justify-center pt-4">
+            <Link
+              target="_blank"
+              href="https://github.com/philparzer/euacc/blob/main/data/README.md"
+            >
               <Button variant="primary">Submit</Button>
             </Link>
           </div>
