@@ -68,16 +68,16 @@ const SubmitButton = ({
         </div>
       </div>
       <div
-        className={`absolute top-20 flex ${
+        className={`absolute top-20 w-[200px] flex ${
           state.isError
             ? "bg-red-500 text-center px-2 py-1 text-white"
             : "text-white"
         }`}
       >
         {(!pending && state.message) ? (
-          <div className="left-0 top-10">
+          <>
             {state.message}
-          </div>
+            </>
         ) : null}
       </div>
     </div>
