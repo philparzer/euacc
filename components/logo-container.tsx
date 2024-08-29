@@ -32,12 +32,8 @@ const SubmitButton = ({
   const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
-    if (state.message && !state.isError) {
+    if ((state.message && !state.isError) || (state.isError && state.message.includes("You have already voted"))) {
       setCookie("vote", name);
-    }
-
-    if (state.isError) {
-      console.log(state.message);
     }
   }, [state.isError, state.message]);
 
@@ -72,19 +68,16 @@ const SubmitButton = ({
         </div>
       </div>
       <div
-        className={`absolute top-12 flex ${
+        className={`absolute w-[200px] top-12 flex ${
           state.isError
-            ? "bg-red-500 px-2 py-1 text-white"
+            ? "bg-red-500 text-center px-2 py-1 text-white"
             : "text-white"
         }`}
       >
-        {(!pending && state.message) ||
-        (isDisabled && name === getCookie("vote")) ? (
-          <>
-            <div className="left-0 top-10 bg-white text-red-500">
-              {state.isError ? "Error" : null}
-            </div>
-          </>
+        {(!pending && state.message) ? (
+          <div className="left-0 top-10">
+            {state.message}
+          </div>
         ) : null}
       </div>
     </div>
@@ -108,6 +101,22 @@ const LogoContainer = ({
     voteForLogo,
     initialState,
   );
+  const [hasVoted, setHasVoted] = useState(false);
+
+  useEffect(() => {
+    if (state.message) {
+      if (state.isError) {
+        // Check if the error message indicates the user has already voted
+        if (state.message.includes("You have already voted")) {
+          setHasVoted(true);
+        }
+      } else {
+        // If it's a success message, set hasVoted to true and call onSubmit
+        setHasVoted(true);
+        onSubmit();
+      }
+    }
+  }, [state, onSubmit]);
 
   return (
     <div className="relative flex flex-col items-center">
@@ -164,6 +173,7 @@ const LogoContainer = ({
             name={name}
             onSubmit={onSubmit}
             disabledByParent={disabledByParent}
+            hasVoted={hasVoted}
           />
         </div>
       </form>
