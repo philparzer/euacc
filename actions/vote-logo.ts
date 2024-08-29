@@ -12,7 +12,8 @@ export default async function voteForLogo(prevState: any, formData: FormData) {
         const name = logoNameSchema.parse(formData.get("name"));
 
         // really primitive rate limiting to prevent spam
-        const ip = headers().get("x-forwarded-for") || "unknown";
+        const forwardedFor = headers().get("x-forwarded-for");
+        const ip = forwardedFor ? forwardedFor.split(',')[0] : 'unknown';
         const userAgent = headers().get("user-agent") || "unknown";
         let userId = cookies().get("userId")?.value;
         if (!userId) {

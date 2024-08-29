@@ -68,7 +68,7 @@ const SubmitButton = ({
         </div>
       </div>
       <div
-        className={`absolute w-[200px] top-12 flex ${
+        className={`absolute top-20 flex ${
           state.isError
             ? "bg-red-500 text-center px-2 py-1 text-white"
             : "text-white"
