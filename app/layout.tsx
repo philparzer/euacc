@@ -3,6 +3,8 @@ import "./globals.css";
 import BgVideo from "@/components/bg-video";
 import { Analytics } from "@vercel/analytics/react";
 import ogImage from "./opengraph-image.png";
+import Logo from "@/components/logo";
+import NewsBanner from "@/components/news-banner";
 // import NewsBanner from "@/components/news-banner";
 
 export const metadata: Metadata = {
@@ -30,12 +32,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`text-white/80`}>
-        {/* <NewsBanner 
-          message="EU Elections this weekend. Go Vote!"
-          link="https://euandi.eu"
-        /> */}
+        <nav className="flex w-full items-center justify-center pt-10">
+          <div className="w-[100px]">
+            <Logo
+              textColorEU="#FFFFFF"
+              textColorACC="#FFFFFF"
+              starColor="#FFDD00"
+            />
+          </div>
+        </nav>
         <BgVideo
-          playbackRate={1}
+          playbackRate={0.5}
           src={"bg.mp4"}
           posterSrc={"bg-poster.png"}
         />

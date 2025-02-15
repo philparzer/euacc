@@ -22,6 +22,9 @@ export default function Page() {
           <p className="pb-2">
             Special credits to <a href="https://www.tiktok.com/@estrn.1/video/7317095302073224479?q=europe%20classic" className="underline">@estrn.1</a> on tiktok for the bg video, this is not an endorsement for the views portrayed by @estrn.1
           </p>
+          <p className="pb-2">
+            For takedown requests regarding the background video, please contact hi@adlerlagune.com. While we believe the edited usage falls under fair use, we will promptly remove the content upon request from the copyright owner.
+          </p>
           <p>
             The operators of this website endeavour to
             always observe the copyrights of others or to
